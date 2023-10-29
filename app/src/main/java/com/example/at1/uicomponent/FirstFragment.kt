@@ -14,7 +14,7 @@ import com.example.at1.databinding.FragmentFirstBinding
 class FirstFragment : Fragment() {
 
     private val TAG = "FirstFragment"
-    private var binding : FragmentFirstBinding? = null
+    private lateinit var binding: FragmentFirstBinding
 
     companion object {
         fun newInstance() = FirstFragment()
@@ -33,10 +33,13 @@ class FirstFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,9 +47,9 @@ class FirstFragment : Fragment() {
         Log.d(TAG, "onViewCreated: ")
         viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
 
-        binding?.button?.setOnClickListener {
+        binding.button.setOnClickListener {
             Log.d(TAG, "onViewCreated :: button on click ")
-            binding?.tvName?.text = viewModel.getName()
+            binding.tvName.text = viewModel.getName()
         }
     }
 
@@ -78,7 +81,6 @@ class FirstFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: ")
-        binding = null
     }
 
     override fun onDetach() {
