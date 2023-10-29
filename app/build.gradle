@@ -7,7 +7,6 @@ android {
     namespace 'com.example.at1'
     compileSdk 34
 
-
     defaultConfig {
         applicationId "com.example.at1"
         minSdk 19
@@ -35,6 +34,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
