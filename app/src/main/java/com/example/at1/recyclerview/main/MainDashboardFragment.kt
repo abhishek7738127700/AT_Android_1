@@ -29,23 +29,12 @@ class MainDashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this)[MainDashboardViewModel::class.java]
-
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-
         openMainDashboard()
     }
 
-    fun openMainDashboard()
-    {
-        val recyclerView: RecyclerView = binding.recyclerView
-        val customAdapter = MainDashboardAdapter(DashBoardItems.dataList)
-        val layoutManager = LinearLayoutManager(activity)
-
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = customAdapter
+    fun openMainDashboard() {
+        binding.mainDashboardAdapter = MainDashboardAdapter(viewModel.dataList)
     }
 
 }

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".recyclerview.main.MainDashboardFragment">
 
     <data>
+
         <variable
-            name="viewModel"
-            type="com.example.at1.recyclerview.main.MainDashboardViewModel" />
-        
+            name="mainDashboardAdapter"
+            type="com.example.at1.recyclerview.main.adapters.MainDashboardAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +18,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:adapter="@{mainDashboardAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

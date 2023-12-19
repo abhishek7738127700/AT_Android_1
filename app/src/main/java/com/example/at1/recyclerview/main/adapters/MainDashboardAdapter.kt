@@ -5,25 +5,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.at1.R
+import com.example.at1.databinding.MainDashboardItemBinding
+import com.example.at1.recyclerview.main.model.DataModel
 
-internal class MainDashboardAdapter(private var itemsList: List<String>) : RecyclerView.Adapter<MainDashboardAdapter.MyViewHolder>(){
+internal class MainDashboardAdapter(private val itemsList: List<DataModel>) :
+    RecyclerView.Adapter<MainDashboardAdapter.MyViewHolder>() {
 
-    internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var itemTextView: TextView = view.findViewById(R.id.itemTextView)
+    internal inner class MyViewHolder(private val itemViewBinding: MainDashboardItemBinding) :
+        RecyclerView.ViewHolder(itemViewBinding.root) {
+        fun bind(data: DataModel) {
+            itemViewBinding.data = data
+        }
     }
 
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.main_dashboard_item, parent, false)
-        return MyViewHolder(itemView)
+        val itemViewBinding = MainDashboardItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return MyViewHolder(itemViewBinding)
     }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = itemsList[position]
-        holder.itemTextView.text = item
+        holder.bind(itemsList[position])
     }
-    override fun getItemCount(): Int {
-        return itemsList.size
-    }
+
+    override fun getItemCount(): Int = itemsList.size
 }
