@@ -6,13 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.at1.R
 import com.example.at1.databinding.FragmentMainDashboardBinding
-import com.example.at1.databinding.FragmentRecyclerViewBinding
 import com.example.at1.recyclerview.main.adapters.MainDashboardAdapter
-import com.example.at1.recyclerview.main.dashboarddata.DashBoardItems
 
 class MainDashboardFragment : Fragment() {
 

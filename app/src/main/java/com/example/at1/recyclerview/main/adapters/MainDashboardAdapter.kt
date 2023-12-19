@@ -1,13 +1,9 @@
 package com.example.at1.recyclerview.main.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.NonNull
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.at1.R
 import com.example.at1.databinding.MainDashboardItemBinding
 import com.example.at1.recyclerview.main.model.DataModel
 
