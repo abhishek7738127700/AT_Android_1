@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.at1.uicomponent.FirstViewModel" />
+            type="com.example.at1.dump.FirstViewModel" />
 
     </data>
 

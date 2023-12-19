@@ -1,4 +1,4 @@
-package com.example.at1.uicomponent
+package com.example.at1.dump
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
@@ -8,19 +8,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.at1.R
 import com.example.at1.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
 
     private val TAG = "FirstFragment"
     private lateinit var binding: FragmentFirstBinding
+    private lateinit var viewModel: FirstViewModel
 
     companion object {
         fun newInstance() = FirstFragment()
     }
-
-    private lateinit var viewModel: FirstViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

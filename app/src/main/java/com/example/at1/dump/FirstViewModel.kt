@@ -1,4 +1,4 @@
-package com.example.at1.uicomponent
+package com.example.at1.dump
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -18,6 +18,9 @@ class FirstViewModel : ViewModel() {
             name.value = "Abhishek 1"
         } else if (counter == 2) {
             name.value = "Abhishek 2"
+        } else{
+            counter = 0
+            name.value = "Abhishek 3"
         }
     }
 }

@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.at1.databinding.ActivityMainBinding
-import com.example.at1.uicomponent.FirstFragment
-import com.google.android.material.tabs.TabLayout.TabGravity
+import com.example.at1.recyclerview.main.MainDashboardFragment
+
 
 class MainActivity : AppCompatActivity() {
-    
+
     private var TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate: ")
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loadFragment(FirstFragment())
+        loadFragment(MainDashboardFragment())
     }
 
     override fun onStart() {
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onDestroy: ")
     }
 
-    private fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment, fragment)
         transaction.disallowAddToBackStack()
