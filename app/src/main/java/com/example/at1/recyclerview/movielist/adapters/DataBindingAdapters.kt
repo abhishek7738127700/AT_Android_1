@@ -50,5 +50,21 @@ fun setFavouriteCondition(imageView: ShapeableImageView, isFavourite: Boolean) {
     } else {
         imageView.setImageResource(R.drawable.ic_favorite_border)
     }
+}
 
+
+@BindingAdapter("setMyAdapter")
+fun setAdapter(recyclerView: RecyclerView, adapter: com.example.at1.recyclerview.main.adapters.BaseAdapter<ViewDataBinding, String>?) {
+    Log.d(TAG, "MainDataBindingAdapter :: setAdapter :: ")
+    adapter?.let {
+        recyclerView.adapter = it
+    }
+}
+
+@Suppress("UNCHECKED_CAST")
+@BindingAdapter("submitMyList")
+fun submitList(recyclerView: RecyclerView, list: List<String>?) {
+    Log.d(TAG, "MainDataBindingAdapter :: submitList :: ")
+    val adapter = recyclerView.adapter as com.example.at1.recyclerview.main.adapters.BaseAdapter<ViewDataBinding, String>?
+    adapter?.updateData(list ?: listOf())
 }
