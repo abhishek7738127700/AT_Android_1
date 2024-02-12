@@ -1,7 +1,8 @@
 package com.example.at1.recyclerview.main.dashboarddata
 
-import com.example.at1.recyclerview.movielist.recdata.Movie
+import com.example.at1.recyclerview.main.model.DataModel
 
 object DashBoardItems {
-    var dataList = mutableListOf<String>("1. Recycler View", "2. Test 1", "3. Test 2")
+    val dataList =
+        mutableListOf(DataModel(1, "Test 1"), DataModel(2, "Test 2"), DataModel(3, "Test 3"))
 }

@@ -1,21 +1,33 @@
 package com.example.at1.recyclerview.main.adapters
 
-import com.example.at1.R
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.annotation.NonNull
+import androidx.recyclerview.widget.RecyclerView
 import com.example.at1.databinding.MainDashboardItemBinding
+import com.example.at1.recyclerview.main.model.DataModel
 
-class MainDashboardAdapter (private val itemsList: List<String>, private val recyclerViewListner : RecyclerViewListner) : BaseAdapter<MainDashboardItemBinding, String>(itemsList){
+internal class MainDashboardAdapter(private val itemsList: List<DataModel>) :
+    RecyclerView.Adapter<MainDashboardAdapter.MyViewHolder>() {
 
-    override val layoutId: Int = R.layout.main_dashboard_item
-
-    override fun bind(binding: MainDashboardItemBinding, item: String) {
-        binding.apply {
-            listner = recyclerViewListner
-            data = item
-            executePendingBindings()
+    internal inner class MyViewHolder(private val itemViewBinding: MainDashboardItemBinding) :
+        RecyclerView.ViewHolder(itemViewBinding.root) {
+        fun bind(data: DataModel) {
+            itemViewBinding.data = data
         }
     }
-}
 
-interface RecyclerViewListner {
-    fun onItemClick(data : String)
+    @NonNull
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val itemViewBinding = MainDashboardItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return MyViewHolder(itemViewBinding)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.bind(itemsList[position])
+    }
+
+    override fun getItemCount(): Int = itemsList.size
 }

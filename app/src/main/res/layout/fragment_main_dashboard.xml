@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".recyclerview.main.MainDashboardFragment">
 
     <data>
-        <variable
-            name="viewModel"
-            type="com.example.at1.recyclerview.main.MainDashboardViewModel" />
 
         <variable
             name="mainDashboardAdapter"
@@ -22,8 +19,8 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:setMyAdapter="@{mainDashboardAdapter}"
-            app:submitMyList="@{viewModel.dashBoardItemList}"/>
+            android:adapter="@{mainDashboardAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
